@@ -2,7 +2,6 @@ import { useState, useRef, type FormEvent } from 'react';
 import { Mail, Phone } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 import { Reveal } from '../components/Reveal';
-import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
