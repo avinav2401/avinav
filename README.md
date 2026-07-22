@@ -72,7 +72,7 @@ A modern, interactive portfolio website featuring an immersive 3D environment wi
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/avinav2401/FUTURE_FS_01.git
+   git clone https://github.com/avinav2401/avinav
    cd test
    ```
 
