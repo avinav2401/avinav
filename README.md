@@ -2,7 +2,7 @@
 
 A modern, interactive portfolio website featuring an immersive 3D environment with a macOS-inspired interface. Built with React, TypeScript, and Three.js (via Spline), this portfolio showcases my work as a game developer and full-stack web developer.
 
-🔗 **Live Demo**: [https://avinav.vercel.app/](https://avinav-priyadarshi.vercel.app/)
+🔗 **Live Demo**: [https://avinav.vercel.app/](https://avinav.vercel.app/)
 
 ## ✨ Features
 
