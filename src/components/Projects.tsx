@@ -54,50 +54,73 @@ const Projects = ({ onViewStealthBrowser }: ProjectsProps) => {
             link: 'https://avinav-shop.vercel.app/',
             github: 'https://github.com/avinav2401/E-Commerce-Platform',
             image: '/unnamed.jpg'
+        },
+        {
+            title: 'VisionAssist AI',
+            description: 'A multimodal artificial intelligence platform designed to fuse computer vision with natural language processing. It empowers machines to look at an image, comprehend a question asked about that image, and synthesize an accurate, context-aware answer, functioning as an accessibility tool for the visually impaired.',
+            tags: ['Python', 'FastAPI', 'Android', 'Computer Vision'],
+            link: 'https://visual-question-answering-three.vercel.app/',
+            github: 'https://github.com/avinav2401/VISUAL-QUESTION-ANSWERING',
+            image: '/vision_ai.png'
+        },
+        {
+            title: 'AI Research Studio',
+            description: 'An advanced, multi-agent AI platform built on LangGraph. Features a Smart LLM Planner that routes queries, executes agents in parallel, synthesizes results with a Reviewer, and compiles a polished Markdown report via a native chat UI.',
+            tags: ['LangGraph', 'Multi-Agent', 'FastAPI', 'Streamlit'],
+            link: 'https://huggingface.co/spaces/avinavpri/ai_research_studio',
+            github: 'https://github.com/avinav2401/AI-Research-studio',
+            image: '/ai_studio.png'
+        },
+        {
+            title: 'UniversalPlantAI',
+            description: 'An AI-Powered Potato & Apple Disease Detection system deploying a TensorFlow CNN inference pipeline through FastAPI for sub-second disease classification across web and mobile platforms.',
+            tags: ['TensorFlow', 'CNN', 'FastAPI', 'React'],
+            link: 'https://tensor-bay.vercel.app/',
+            github: 'https://github.com/avinav2401/tensor',
+            image: '/plant_ai.png'
         }
     ];
 
     return (
-        <section id="projects" className="py-8">
+        <section id="projects" className="py-16 md:py-24">
             <div className="container">
-                <h2 className="title text-gradient-silver-blue">Featured Projects</h2>
+                <h2 className="title text-gradient-silver-blue text-3xl md:text-4xl mb-12">Featured Projects</h2>
                 <Reveal width="100%">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {projects.map((project, index) => (
                             <div
                                 key={index}
-                                className="glass project-card animate-fade-up"
-                                style={{ borderRadius: '1.5rem', overflow: 'hidden', animationDelay: `${index * 0.1}s` }}
+                                className="glass project-card animate-fade-up rounded-[1.5rem] overflow-hidden flex flex-col"
+                                style={{ animationDelay: `${index * 0.1}s` }}
                             >
-                                <div style={{ height: '280px', background: '#27272a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#52525b', fontSize: '1.1rem', overflow: 'hidden' }}>
+                                <div className="h-64 md:h-72 bg-[#18181b] flex items-center justify-center text-zinc-500 text-lg overflow-hidden relative">
                                     {project.video ? (
                                         <video
                                             autoPlay
                                             loop
                                             muted
                                             playsInline
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                            className="w-full h-full object-contain"
                                         >
                                             <source src={project.video} type="video/mp4" />
                                         </video>
                                     ) : project.image ? (
-                                        <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <img src={project.image} alt={project.title} className="w-full h-full object-contain" />
                                     ) : (
                                         'Project Preview'
                                     )}
                                 </div>
-                                <div style={{ padding: '2rem', borderTop: '1px solid var(--glass-border)' }}>
-                                    <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>{project.title}</h3>
-                                    <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '1.25rem', lineHeight: '1.7' }}>{project.description}</p>
-                                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                                <div className="p-6 md:p-8 border-t border-white/10 flex-1 flex flex-col">
+                                    <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                                    <p className="text-zinc-400 text-base md:text-lg mb-6 leading-relaxed flex-1 line-clamp-4">{project.description}</p>
+                                    <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                                         {project.tags.map(tag => (
-                                            <span key={tag} style={{ fontSize: '0.8rem', color: 'var(--accent)' }}>#{tag}</span>
+                                            <span key={tag} className="text-sm font-medium text-indigo-400 px-3 py-1 bg-indigo-400/10 rounded-full">#{tag}</span>
                                         ))}
                                     </div>
-                                    <div style={{ display: 'flex', gap: '1rem' }}>
+                                    <div className="flex items-center gap-4 mt-auto">
                                         <button
-                                            className="btn btn-primary"
-                                            style={{ padding: '0.75rem 1.5rem', fontSize: '1.05rem' }}
+                                            className="btn btn-primary px-6 py-3 text-base flex-1 flex justify-center items-center gap-2"
                                             onClick={() => {
                                                 if (project.title === 'Stealth Browser' && onViewStealthBrowser) {
                                                     onViewStealthBrowser();
@@ -106,10 +129,10 @@ const Projects = ({ onViewStealthBrowser }: ProjectsProps) => {
                                                 }
                                             }}
                                         >
-                                            View <ExternalLink size={16} />
+                                            View <ExternalLink size={18} />
                                         </button>
-                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }} onClick={(e) => e.stopPropagation()}>
-                                            <Github size={18} />
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+                                            <Github size={24} />
                                         </a>
                                     </div>
                                 </div>

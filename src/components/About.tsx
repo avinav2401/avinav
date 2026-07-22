@@ -10,49 +10,23 @@ const About = ({ onOpenModal }: AboutProps) => {
         <section id="about" className="section">
             <div className="container">
                 <Reveal width="100%">
-                    <div className="glass" style={{ padding: '4rem', borderRadius: '2rem', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                    <div className="glass p-8 md:p-12 lg:p-16 rounded-[2rem] flex flex-col gap-8 md:gap-10">
                         <div>
-                            <h2 className="title text-gradient-silver-blue">About Me</h2>
-                            <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '800px', lineHeight: '1.9' }}>
+                            <h2 className="title text-gradient-silver-blue text-3xl md:text-4xl">About Me</h2>
+                            <p className="text-lg md:text-xl text-zinc-400 max-w-[800px] leading-relaxed">
                                 I'm a passionate developer with a keen eye for design and a drive for creating seamless digital experiences.
                                 With expertise in modern web technologies, I transform complex problems into elegant, user-centric solutions.
                             </p>
                         </div>
 
-
                         {/* More Button */}
-                        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'flex-start' }}>
+                        <div className="mt-4 md:mt-8 flex justify-start">
                             <button
-                                className="group"
+                                className="group flex items-center gap-4 px-8 py-4 text-xl font-semibold rounded-full bg-transparent border-2 border-cyan-400 text-cyan-400 cursor-pointer transition-all duration-300 hover:bg-cyan-400/10 hover:translate-x-1"
                                 onClick={onOpenModal}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '1rem',
-                                    padding: '1.25rem 2.5rem',
-                                    fontSize: '1.25rem',
-                                    fontWeight: '600',
-                                    borderRadius: '50px',
-                                    background: 'transparent',
-                                    border: '2px solid #22d3ee',
-                                    color: '#22d3ee',
-                                    cursor: 'pointer',
-                                    transition: 'all 0.3s ease'
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.background = 'rgba(34, 211, 238, 0.1)';
-                                    e.currentTarget.style.transform = 'translateX(4px)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.background = 'transparent';
-                                    e.currentTarget.style.transform = 'translateX(0)';
-                                }}
                             >
                                 More
-                                <span style={{
-                                    fontSize: '1.3rem',
-                                    transition: 'transform 0.3s ease',
-                                }} className="group-hover:translate-x-1">→</span>
+                                <span className="text-2xl transition-transform duration-300 group-hover:translate-x-2">→</span>
                             </button>
                         </div>
                     </div>

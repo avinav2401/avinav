@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 import Preloader from './components/Preloader';
+import ConstellationBackground from './components/ConstellationBackground';
 import { useSoundEffects } from './hooks/useSoundEffects';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="relative min-h-screen">
+      <ConstellationBackground />
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
 
       {!isLoading && (

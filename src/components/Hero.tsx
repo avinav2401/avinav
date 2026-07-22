@@ -7,7 +7,7 @@ const Hero = () => {
     const titleRef = useRef<HTMLHeadingElement>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLHeadingElement>) => {
-        if (!titleRef.current) return;
+        if (!titleRef.current || window.innerWidth < 768) return;
 
         const rect = titleRef.current.getBoundingClientRect();
         const x = e.clientX - rect.left;
@@ -34,27 +34,27 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0a]">
+        <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-transparent">
 
             {/* Background Moving Text - Layer 1 (Top Left) */}
-            <div className="absolute top-[5%] -left-10 opacity-10 select-none pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[10%] -left-10 opacity-10 select-none pointer-events-none whitespace-nowrap">
                 <div className="animate-marquee hover:pause flex">
-                    <span className="text-[80px] sm:text-[120px] md:text-[150px] lg:text-[200px] font-['Rajdhani'] font-bold tracking-[15px] sm:tracking-[20px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
+                    <span className="text-[50px] sm:text-[80px] md:text-[120px] lg:text-[180px] font-['Rajdhani'] font-bold tracking-[10px] sm:tracking-[15px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
                         Game Developer   Game Developer   Game Developer
                     </span>
-                    <span className="text-[80px] sm:text-[120px] md:text-[150px] lg:text-[200px] font-['Rajdhani'] font-bold tracking-[15px] sm:tracking-[20px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
+                    <span className="text-[50px] sm:text-[80px] md:text-[120px] lg:text-[180px] font-['Rajdhani'] font-bold tracking-[10px] sm:tracking-[15px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
                         Game Developer   Game Developer   Game Developer
                     </span>
                 </div>
             </div>
 
             {/* Background Moving Text - Layer 2 (Bottom Right) */}
-            <div className="absolute bottom-[5%] -left-10 opacity-10 select-none pointer-events-none whitespace-nowrap">
+            <div className="absolute bottom-[10%] -left-10 opacity-10 select-none pointer-events-none whitespace-nowrap">
                 <div className="animate-marqueeReverse hover:pause flex">
-                    <span className="text-[80px] sm:text-[120px] md:text-[150px] lg:text-[200px] font-['Rajdhani'] font-bold tracking-[15px] sm:tracking-[20px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
+                    <span className="text-[50px] sm:text-[80px] md:text-[120px] lg:text-[180px] font-['Rajdhani'] font-bold tracking-[10px] sm:tracking-[15px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
                         Software Developer   Software Developer   Software Developer
                     </span>
-                    <span className="text-[80px] sm:text-[120px] md:text-[150px] lg:text-[200px] font-['Rajdhani'] font-bold tracking-[15px] sm:tracking-[20px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
+                    <span className="text-[50px] sm:text-[80px] md:text-[120px] lg:text-[180px] font-['Rajdhani'] font-bold tracking-[10px] sm:tracking-[15px] md:tracking-[30px] uppercase text-transparent bg-clip-text bg-gradient-to-r from-zinc-500 to-zinc-800 stroke-text mx-4">
                         Software Developer   Software Developer   Software Developer
                     </span>
                 </div>
