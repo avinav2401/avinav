@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import Hero from '../components/Hero';
-import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import BlenderShowcase from '../components/BlenderShowcase';
 import Experience from '../components/Experience';
 import ShootingStars from '../components/ShootingStars';
-import AboutModal from '../components/AboutModal';
 import ScrollProgress from '../components/ScrollProgress';
 import StealthBrowserDetail from '../components/StealthBrowserDetail';
 
-const HomePage = () => {
-    const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
+interface HomePageProps {
+    onOpenAboutModal: () => void;
+}
+
+const HomePage = ({ onOpenAboutModal }: HomePageProps) => {
     const [showStealthDetail, setShowStealthDetail] = useState(false);
 
     return (
@@ -22,10 +23,9 @@ const HomePage = () => {
                 <>
                     <ShootingStars />
                     <ScrollProgress />
-                    <Navbar onAboutClick={() => setIsAboutModalOpen(true)} />
                     <div className="relative z-10 animate-fade-up">
                         <Hero />
-                        <About onOpenModal={() => setIsAboutModalOpen(true)} />
+                        <About onOpenModal={onOpenAboutModal} />
                         <div className="space-y-8">
                             <Experience />
                             <Projects onViewStealthBrowser={() => setShowStealthDetail(true)} />
@@ -37,7 +37,6 @@ const HomePage = () => {
                             </p>
                         </footer>
                     </div>
-                    <AboutModal isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)} />
                 </>
             )}
         </>

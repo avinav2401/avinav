@@ -14,7 +14,7 @@ const BlenderShowcase = () => {
         {
             title: 'Coffee Shop',
             description: 'A stylized coffee shop concept focusing on lighting and clean design. Modeled and rendered entirely in Blender.',
-            tags: ['Digital 3D', 'Arch-Viz', 'Blender', '3D Model'],
+            tags: ['Digital 3D', 'Architectural Visualization', 'Blender', '3D Model'],
             link: 'https://www.artstation.com/artwork/qJDyAe',
             video: '/blender-coffee.mp4'
         },

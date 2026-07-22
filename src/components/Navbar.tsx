@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
 import { SiItchdotio, SiArtstation } from 'react-icons/si';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
     onAboutClick: () => void;
@@ -10,6 +10,23 @@ interface NavbarProps {
 const Navbar = ({ onAboutClick }: NavbarProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const isHome = location.pathname === '/';
+
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (!isHome && href.startsWith('#')) {
+            e.preventDefault();
+            setIsOpen(false);
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(href.substring(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -54,7 +71,8 @@ const Navbar = ({ onAboutClick }: NavbarProps) => {
                         ) : (
                             <a
                                 key={link.name}
-                                href={link.href}
+                                href={isHome ? link.href : `/${link.href}`}
+                                onClick={(e) => handleNavClick(e, link.href)}
                                 className="text-sm lg:text-base font-medium text-zinc-100 hover:text-indigo-500 hover:scale-110 transition-all duration-300"
                             >
                                 {link.name}
@@ -105,8 +123,11 @@ const Navbar = ({ onAboutClick }: NavbarProps) => {
                         ) : (
                             <a
                                 key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
+                                href={isHome ? link.href : `/${link.href}`}
+                                onClick={(e) => {
+                                    if (isHome) setIsOpen(false);
+                                    else handleNavClick(e, link.href);
+                                }}
                                 className="text-lg font-medium text-zinc-100 hover:text-indigo-500 transition-all duration-300"
                             >
                                 {link.name}

@@ -131,13 +131,6 @@ const ContactPage = () => {
                 <div className="absolute bottom-0 right-0 w-48 h-32 bg-gradient-to-tl from-[#0a0a0b] via-[#0a0a0b] to-transparent z-10 pointer-events-none"></div>
             </div>
 
-            {/* Back Button */}
-            <Link
-                to="/"
-                className="fixed top-8 left-8 z-50 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
-            >
-                ← Back to Home
-            </Link>
 
             <div className="container relative z-10 pointer-events-none py-16 ml-auto mr-16 max-w-6xl">
                 <Reveal width="100%">
